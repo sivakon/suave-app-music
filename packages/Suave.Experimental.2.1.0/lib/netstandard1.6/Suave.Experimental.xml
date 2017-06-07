@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Suave.Experimental</name></assembly>
+<members>
+<member name="T:Suave.Html.Node.WhiteSpace">
+<summary>
+ Whitespace for formatting
+</summary>
+</member>
+<member name="T:Suave.Html.Node.Text">
+<summary>
+ A text value for a node
+</summary>
+</member>
+<member name="T:Suave.Html.Node.VoidElement">
+<summary>
+ A void element is one that can&apos;t have content
+ See: https://www.w3.org/TR/html5/syntax.html#void-elements
+</summary>
+</member>
+<member name="T:Suave.Html.Node.Element">
+<summary>
+ A regular html element that can contain a list of other nodes
+</summary>
+</member>
+<member name="T:Suave.Html.Node">
+<summary>
+ A Node in Html have the following forms
+</summary>
+</member>
+<member name="M:Suave.Html.htmlToString(Suave.Html.Node)">
+<summary>
+ Rendering
+</summary>
+</member>
+<member name="P:Suave.Html.samplePage">
+<summary>
+ Example
+</summary>
+</member>
+<member name="T:Suave.Xml.Node">
+<summary>
+ Each node has/is an element and then some other XML
+</summary>
+</member>
+<member name="T:Suave.Xml.Xml">
+<summary>
+ XML is a list of nodes
+</summary>
+</member>
+<member name="T:Suave.Xml.Element.WhiteSpace">
+<summary>
+ Whitespace for formatting
+</summary>
+</member>
+<member name="T:Suave.Xml.Element.Text">
+<summary>
+ A text element inside the HTML element
+</summary>
+</member>
+<member name="T:Suave.Xml.Element.Element">
+<summary>
+ The element itself; a name, a xml namespace and an array of attribute-value pairs.
+</summary>
+</member>
+<member name="T:Suave.Xml.Element">
+<summary>
+ Representation of the things that go into an HTML element
+</summary>
+</member>
+<member name="M:Suave.Xml.joinSpaces``1(``0)">
+<summary>
+ Rendering
+</summary>
+</member>
+<member name="P:Suave.Xml.samplePage">
+<summary>
+ Example
+</summary>
+</member>
+<member name="M:Suave.Xml.flatten(Microsoft.FSharp.Collections.FSharpList{Suave.Xml.Xml})">
+<summary>
+ HTML elements.
+ If you need to pass attributes use the version sufixed by ` (funny quote symbol)
+ Flattens an XML list
+</summary>
+</member>
+<member name="T:Suave.Template.Attributes">
+<summary>
+ An attribute array; an array of key-value pairs
+</summary>
+</member>
+<member name="T:Suave.Template.Binder">
+<summary>
+ A binder takes XML, applies a transform, and returns the XML back.
+</summary>
+</member>
+<member name="M:Suave.Template.processTemplate(Microsoft.FSharp.Collections.FSharpMap{System.String,Microsoft.FSharp.Core.FSharpFunc{Suave.Xml.Xml,Suave.Xml.Xml}},Suave.Http.HttpContext)">
+<summary>
+ Process the template/html that is the requested LocalPath in the request Uri,
+ binding the &apos;user&apos; elements to values from the &apos;data&apos; bindings. If the processing
+ is successful, return the data as UTF-8 string in the response body; otherwise
+ write the exception as a string to a 500 Internal Error response.
+</summary>
+</member>
+<member name="M:Suave.Template.parser(System.Xml.XmlReader,Suave.Xml.Xml)">
+<summary>
+ Read through the xml reader, appending the elements of the XML as you
+ go to the value in the XML(l) input. Returns the read XML as an XML value.
+</summary>
+</member>
+<member name="M:Suave.Template.readatt(System.Xml.XmlReader)">
+<summary>
+ Read an attribute from the xml reader by moving it
+ one step along and then yielding that value.
+</summary>
+</member>
+<member name="M:Suave.Template.writeXmlToStringWriter(Suave.Xml.Xml,System.IO.StringWriter)">
+<summary>
+ Recursively convert the Xml structure to text into the string writer
+</summary>
+</member>
+<member name="M:Suave.Template.writeCloseTag``2(System.String,``0,``1,System.IO.StringWriter)">
+<summary>
+ Write the end of tag &apos;s&apos; to the string writer
+</summary>
+</member>
+<member name="M:Suave.Template.writeBeginTag``1(System.String,``0,System.Tuple{System.String,System.String}[],System.IO.StringWriter)">
+<summary>
+ Write the start of the tag &apos;s&apos; to the string writer
+</summary>
+</member>
+<member name="M:Suave.Template.bind(System.String,Suave.Xml.Xml,Microsoft.FSharp.Collections.FSharpMap{System.String,Microsoft.FSharp.Core.FSharpFunc{Suave.Xml.Xml,Suave.Xml.Xml}})">
+<summary>
+ Bind the matching elements, given the namespace &apos;ns&apos;, a XML/HTML document &apos;node&apos;
+ and a &apos;bindings&apos; map.
+</summary>
+</member>
+<member name="M:Suave.Template.extractTemplate(System.String,Microsoft.FSharp.Collections.FSharpMap{System.String,Microsoft.FSharp.Core.FSharpFunc{Suave.Xml.Xml,Suave.Xml.Xml}},Suave.Xml.Xml)">
+<summary>
+ Extract an XML/HTML template from the input &apos;xml&apos;, in &apos;ns1:keyhere&apos; form
+ for tags that can be parsed. Replace those tags with their values as defined
+ in the &apos;bindings&apos;.
+</summary>
+</member>
+<member name="M:Suave.Template.|Pat|NoPat|(System.String)">
+<summary>
+ Active Pattern that checks whether &apos;x&apos; the string contains a pattern
+ and if so, returns the Pat( ... ) value containing the key-value pair
+ that was matched before and after &apos;:&apos;
+</summary>
+</member>
+<member name="M:Suave.Template.invoke``1(System.Object,System.String,``0)">
+<summary>
+ Invoke the &apos;action&apos; on the &apos;object&apos; with &apos;args&apos;
+</summary>
+</member>
+<member name="M:Suave.Template.loadObject(System.String)">
+<summary>
+ Load an object from its name
+</summary>
+</member>
+<member name="T:Suave.Template">
+<summary>
+ A module for templating and generation of output
+</summary>
+</member>
+<member name="T:Suave.Data.SQLBuilder">
+<summary>
+ The SQLBuilder type takes a connection and handles the querying
+ against the database form the monad builder.
+</summary>
+</member>
+<member name="M:Suave.Data.executeCommand``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0)">
+<summary>
+ Executes a command with arguments
+</summary>
+</member>
+<member name="M:Suave.Data.executeNonQuery(System.Data.Common.DbCommand)">
+<summary>
+ Executes a non-query against the command
+</summary>
+</member>
+<member name="M:Suave.Data.sql(System.Data.Common.DbConnection)">
+<summary>
+ A sql-workflow builder with a connection given
+</summary>
+</member>
+<member name="M:Suave.Data.PrintfFormatProc``4(Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.String,Microsoft.FSharp.Collections.FSharpList{System.Object}},``0},Microsoft.FSharp.Core.PrintfFormat{``1,``2,``3,``0})">
+<summary>
+ TO BE DONE
+</summary>
+</member>
+<member name="M:Suave.Data.eval``1(System.Data.Common.DbDataReader)">
+<summary>
+ Evaluate the &apos;reader&apos; at the current position, to the type &apos;T,
+ which, if either a F# record type or a F# tuple type, is converted
+ from the structure of the fields in the reader, or otherwise,
+ the value from the reader is cast to the &apos;T type.
+</summary>
+</member>
+</members>
+</doc>
